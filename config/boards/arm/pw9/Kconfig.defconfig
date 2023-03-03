@@ -1,0 +1,26 @@
+# Copyright (c) 2021 Polarity Works
+# SPDX-License-Identifier: MIT
+
+if BOARD_PW9
+
+config BOARD
+	default "pw9"
+
+if USB
+
+config USB_DEVICE_STACK
+	default y
+
+endif # USB
+
+config RP2_FLASH_W25Q080
+	default y
+
+config ZMK_USB
+	default y
+
+
+config ZMK_KEYBOARD_NAME
+	default "PW9"
+
+endif # BOARD_PW9
