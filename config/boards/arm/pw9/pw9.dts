@@ -7,7 +7,9 @@
 /dts-v1/;
 #include <freq.h>
 #include <rpi_pico/rp2040.dtsi>
+//#include "pinctrl.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/led/led.h>
 
 / {
 	model = "PW9";
@@ -18,6 +20,7 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
+		//zmk,underglow = &led_strip;
 	};
 
 	xtal_clk: xtal-clk {
@@ -26,13 +29,18 @@
 		#clock-cells = <0>;
 	};
 
+	sensors {
+		compatible = "zmk,keymap-sensors";
+		sensors = <&encoder_1, &encoder_2>;
+	};
+
 	kscan0: kscan_0 {
 		compatible = "zmk,kscan-gpio-matrix";
 		label = "KSCAN";
 		diode-direction = "col2row";
 
 		col-gpios
-			= <&gpio0 24 GPIO_ACTIVE_HIGH>
+			= <&gpio0 21 GPIO_ACTIVE_HIGH>
 			, <&gpio0 0 GPIO_ACTIVE_HIGH>
 			, <&gpio0 5 GPIO_ACTIVE_HIGH>
 			;
@@ -43,6 +51,24 @@
 			, <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
 	};
+
+	encoder_1: encoder_1 {
+		compatible = "alps,ec11";
+		label = "ENCODER_ONE";
+		a-gpios = <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 25 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		resolution = <4>;
+		status = "okay";
+	};
+	encoder_2: encoder_2 {
+		compatible = "alps,ec11";
+		label = "ENCODER_TWO";
+		a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		resolution = <4>;
+		status = "okay";
+	};
+
 };
 
 
@@ -81,3 +107,27 @@ zephyr_udc0: &usbd {
 		};
 	};
 };
+
+/*
+&spi1 {
+	clock-frequency = <DT_FREQ_M(8)>;
+	status = "okay";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-names = "default";
+  led_strip: ws2812@0 {
+    compatible = "worldsemi,ws2812-spi";
+    label = "WS2812";
+
+    /* SPI */
+    reg = <0>;
+    spi-max-frequency = <5250000>;
+
+    /* WS2812 */
+    chain-length = <4>; /* number of LEDs */
+    spi-one-frame = <0x70>; /* make sure to configure this properly for your SOC */
+    spi-zero-frame = <0x40>; /* make sure to configure this properly for your SOC */
+    color-mapping = <LED_COLOR_ID_GREEN
+                          LED_COLOR_ID_RED
+                          LED_COLOR_ID_BLUE>;
+  };
+};*/
