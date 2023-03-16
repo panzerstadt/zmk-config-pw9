@@ -20,7 +20,6 @@
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
 		zmk,kscan = &kscan0;
-		//zmk,underglow = &led_strip;
 	};
 
 	xtal_clk: xtal-clk {
