@@ -111,7 +111,7 @@ zephyr_udc0: &usbd {
 };
 
 &spi1 {
-	clock-frequency = <DT_FREQ_M(8)>;
+	clock-frequency = <DT_FREQ_M(2)>;
 	status = "okay";
 	pinctrl-0 = <&spi1_default>;
 	pinctrl-names = "default";
