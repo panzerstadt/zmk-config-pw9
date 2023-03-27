@@ -7,37 +7,37 @@
             compatible = "zmk,behavior-macro";
             label = "init";
             #binding-cells = <0>;
-            bindings = <&kp I &kp N &kp I &kp T &kp I &kp A &kp L &kp I &kp S &kp E>;
+            bindings = <&kp I &kp N &kp I &kp T &kp I &kp A &kp L &kp I &kp S &kp E &kp ENTER>;
         };
         input: input {
             compatible = "zmk,behavior-macro";
             label = "input";
             #binding-cells = <0>;
-            bindings = <&kp I &kp N &kp P &kp U &kp T>;
+            bindings = <&kp I &kp N &kp P &kp U &kp T &kp ENTER>;
         };
         speed: speed {
             compatible = "zmk,behavior-macro";
             label = "speed";
             #binding-cells = <0>;
-            bindings = <&kp P &kp I &kp C &kp K &kp U &kp P>;
+            bindings = <&kp P &kp I &kp C &kp K &kp U &kp P &kp ENTER>;
         };
         dispense: dispense {
             compatible = "zmk,behavior-macro";
             label = "dispense";
             #binding-cells = <0>;
-            bindings = <&kp D &kp I &kp S &kp P &kp E &kp N &kp S &kp E>;
+            bindings = <&kp D &kp I &kp S &kp P &kp E &kp N &kp S &kp E &kp ENTER>;
         };
         stop: stop {
             compatible = "zmk,behavior-macro";
             label = "stop";
             #binding-cells = <0>;
-            bindings = <&kp S &kp T &kp O &kp P>;
+            bindings = <&kp S &kp T &kp O &kp P &kp ENTER>;
         };
         pickup: pickup {
             compatible = "zmk,behavior-macro";
             label = "new_macro";
             #binding-cells = <0>;
-            bindings = <&kp P &kp I &kp C &kp K &kp U &kp P>;
+            bindings = <&kp P &kp I &kp C &kp K &kp U &kp P &kp ENTER>;
         };
     };
 
