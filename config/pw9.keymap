@@ -19,7 +19,7 @@
             compatible = "zmk,behavior-macro";
             label = "speed";
             #binding-cells = <0>;
-            bindings = <&kp P &kp I &kp C &kp K &kp U &kp P &kp ENTER>;
+            bindings = <&kp S &kp P &kp E &kp E &kp D &kp ENTER>;
         };
         dispense: dispense {
             compatible = "zmk,behavior-macro";
