@@ -39,17 +39,17 @@
             #binding-cells = <0>;
             bindings = <&kp P &kp I &kp C &kp K &kp U &kp P &kp ENTER>;
         };
-        one: one {
-            compatible = "zmk,behavior-macro";
-            label = "new_macro";
-            #binding-cells = <0>;
-            bindings = <&kp NUMBER_1 &kp ENTER>;
-        };
         two: two {
             compatible = "zmk,behavior-macro";
             label = "new_macro";
             #binding-cells = <0>;
             bindings = <&kp NUMBER_2 &kp ENTER>;
+        };
+        num_1: num_1 {
+            compatible = "zmk,behavior-macro";
+            label = "new_macro";
+            #binding-cells = <0>;
+            bindings = <&kp N1 &kp ENTER>;
         };
     };
 
@@ -58,7 +58,7 @@
 
         default_layer {
             bindings = <
-&kp NUMBER_0       &one    &two
+&kp NUMBER_0     &num_1    &two
        &init     &input  &speed
      &pickup  &dispense   &stop
             >;
