@@ -51,6 +51,30 @@
             #binding-cells = <0>;
             bindings = <&kp N1 &kp ENTER>;
         };
+        sample_pickup: sample_pickup {
+            compatible = "zmk,behavior-macro";
+            label = "new_macroq";
+            #binding-cells = <0>;
+            bindings = <&kp S &kp A &kp M &kp P &kp L &kp E &kp UNDERSCORE &kp P &kp I &kp C &kp K &kp U &kp P>;
+        };
+        prime_chip: prime_chip {
+            compatible = "zmk,behavior-macro";
+            label = "new_macrow";
+            #binding-cells = <0>;
+            bindings = <&kp P &kp R &kp I &kp M &kp E &kp UNDERSCORE &kp C &kp H &kp I &kp P>;
+        };
+        measure_sample: measure_sample {
+            compatible = "zmk,behavior-macro";
+            label = "new_macroe";
+            #binding-cells = <0>;
+            bindings = <&kp M &kp E &kp A &kp S &kp U &kp R &kp E &kp UNDERSCORE &kp S &kp A &kp M &kp P &kp L &kp E>;
+        };
+        cleanIL: cleanIL {
+            compatible = "zmk,behavior-macro";
+            label = "new_macror";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp L &kp E &kp A &kp N &kp I &kp L>;
+        };
     };
 
     keymap {
@@ -58,9 +82,9 @@
 
         default_layer {
             bindings = <
-&kp NUMBER_0     &num_1    &two
-       &init     &input  &speed
-     &pickup  &dispense   &stop
+&sample_pickup  &caps_word  &measure_sample
+      &cleanIL      &input           &speed
+       &pickup   &dispense            &stop
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
